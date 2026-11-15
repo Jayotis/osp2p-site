@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open Social P2P — A social network that runs from your home</title>
   <meta name="description" content="Open Social P2P is a home-hosted peer-to-peer social network where people own their identity, posts and media, and explore the network through a zoomable Universe.">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#070b22">
   <link rel="canonical" href="https://osp2p.com/">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png">
   <link rel="stylesheet" href="/styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Open Social P2P">
@@ -15,9 +17,12 @@
   <meta name="twitter:card" content="summary">
 </head>
 <body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="/" aria-label="Open Social P2P home">
-      <span class="brand-mark" aria-hidden="true">OSP</span>
+      <img class="brand-icon" src="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png" width="44" height="44" alt="">
       <span>Open Social P2P</span>
     </a>
     <nav aria-label="Primary navigation">
@@ -32,7 +37,7 @@
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">OPEN SOURCE · HOME HOSTED · PEER TO PEER</p>
-        <h1>A social network that runs from <span>your home.</span></h1>
+        <h1>A social network that runs from <span class="gradient-text">your home.</span></h1>
         <p class="lede">
           Open Social P2P puts your identity, posts and media on your own node instead of a giant platform.
           Your phone is the familiar interface. Your home computer does the work.
@@ -44,22 +49,16 @@
         <p class="alpha-note">Product Alpha is under active development. Public testing opens after the current product and privacy gates are complete.</p>
       </div>
 
-      <div class="universe-card" aria-label="Illustration of the Open Social P2P Universe">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="star star-you"><span>You</span></div>
-        <div class="star star-a"></div>
-        <div class="star star-b"></div>
-        <div class="star star-c"></div>
-        <div class="star star-d"></div>
-        <div class="star star-e"></div>
-        <div class="star star-f"></div>
-        <div class="star star-g"></div>
-        <div class="line line-one"></div>
-        <div class="line line-two"></div>
-        <div class="line line-three"></div>
-        <div class="line line-four"></div>
-        <p class="universe-label">Your Universe</p>
+      <div class="hero-visual" aria-label="Open Social P2P app icon">
+        <div class="network-ring ring-one" aria-hidden="true"></div>
+        <div class="network-ring ring-two" aria-hidden="true"></div>
+        <div class="network-dot dot-cyan" aria-hidden="true"></div>
+        <div class="network-dot dot-purple" aria-hidden="true"></div>
+        <div class="network-dot dot-pink" aria-hidden="true"></div>
+        <div class="network-dot dot-orange" aria-hidden="true"></div>
+        <div class="icon-glow" aria-hidden="true"></div>
+        <img class="hero-icon" src="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png" width="180" height="180" alt="Open Social P2P app icon">
+        <div class="hero-badge"><span></span> Product Alpha</div>
       </div>
     </section>
 
@@ -153,6 +152,9 @@
         </p>
       </div>
       <div class="status-card">
+        <div class="status-icon-wrap">
+          <img src="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png" width="58" height="58" alt="">
+        </div>
         <p class="status-label"><span></span> Development</p>
         <strong>Product Alpha</strong>
         <p>Not yet an invitation to install.</p>
@@ -161,6 +163,7 @@
     </section>
 
     <section class="cta">
+      <img class="cta-icon" src="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png" width="72" height="72" alt="">
       <p class="eyebrow">OPEN SOCIAL P2P</p>
       <h2>The social network should belong to the people running it.</h2>
       <p>OSP is AGPL-3.0 open source. Follow the project now; downloads and testing invitations will appear here when Product Alpha is ready.</p>
@@ -169,9 +172,12 @@
   </main>
 
   <footer>
-    <div>
-      <strong>Open Social P2P</strong>
-      <p>Home-hosted social networking, built in the open.</p>
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png" width="34" height="34" alt="">
+      <div>
+        <strong>Open Social P2P</strong>
+        <p>Home-hosted social networking, built in the open.</p>
+      </div>
     </div>
     <div class="footer-links">
       <a href="https://github.com/Jayotis/open-social-p2p">GitHub</a>
