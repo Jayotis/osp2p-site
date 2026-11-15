@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Social P2P — A social network that runs from your home</title>
-  <meta name="description" content="Open Social P2P is a home-hosted peer-to-peer social network where people own their identity, posts and media, and explore the network through a zoomable Universe.">
+  <title>Open Social P2P — Your social network, running from home</title>
+  <meta name="description" content="Open Social P2P is a home social network: your identity, posts and media live on hardware you control, with peer-to-peer distribution and no corporate-controlled global feed.">
   <meta name="theme-color" content="#070b22">
   <link rel="canonical" href="https://osp2p.com/">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Jayotis/open-social-p2p/main/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png">
@@ -26,6 +26,7 @@
       <span>Open Social P2P</span>
     </a>
     <nav aria-label="Primary navigation">
+      <a href="#hardware">Run it at home</a>
       <a href="#universe">Universe</a>
       <a href="#how">How it works</a>
       <a href="#status">Status</a>
@@ -39,8 +40,8 @@
         <p class="eyebrow">OPEN SOURCE · HOME HOSTED · PEER TO PEER</p>
         <h1>A social network that runs from <span class="gradient-text">your home.</span></h1>
         <p class="lede">
-          Open Social P2P puts your identity, posts and media on your own node instead of a giant platform.
-          Your phone is the familiar interface. Your home computer does the work.
+          Open Social P2P is a home social network. Your identity, posts and media live on a node you control, while your phone feels like a normal social app.
+          No single company holds every account or controls one global engagement feed.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="https://github.com/Jayotis/open-social-p2p">View the project on GitHub</a>
@@ -65,19 +66,63 @@
     <section class="principles" aria-label="Core principles">
       <article>
         <p class="number">01</p>
-        <h2>Your node</h2>
-        <p>Your home computer keeps your identity and content. The network is built around people owning their own place in it.</p>
+        <h2>Runs at home</h2>
+        <p>Your identity and content live on hardware you control instead of existing only inside a corporation's account system.</p>
       </article>
       <article>
         <p class="number">02</p>
-        <h2>Shared by people</h2>
-        <p>Public media can be carried by other participating nodes, so popular content does not depend on one central server paying every bandwidth bill.</p>
+        <h2>No corporate feed owner</h2>
+        <p>OSP can use algorithms for search, discovery and Universe, but there is no central company tuning one global feed for advertising or engagement.</p>
       </article>
       <article>
         <p class="number">03</p>
-        <h2>No hidden feed machine</h2>
-        <p>OSP is being built so discovery comes from the network you can inspect, not from an opaque engagement-ranking system watching what you do.</p>
+        <h2>People carry the network</h2>
+        <p>Participating nodes can keep and serve verified copies of public content, so distribution does not depend on one company's media data center.</p>
       </article>
+    </section>
+
+    <section id="hardware" class="hardware">
+      <div class="hardware-intro">
+        <div>
+          <p class="eyebrow">START WITH WHAT YOU HAVE</p>
+          <h2>You don't need to buy a server.</h2>
+        </div>
+        <div>
+          <p>
+            OSP is designed so your long-running node can eventually live on inexpensive, low-power hardware at home.
+            Product Alpha is being built and tested on ordinary computers first; Raspberry Pi-class SBC performance is a target we measure, not a promise we pretend is already proven.
+          </p>
+        </div>
+      </div>
+
+      <div class="hardware-grid">
+        <article>
+          <p class="hardware-kicker">TRY OSP</p>
+          <h3>Your existing computer</h3>
+          <p>Install the node on a desktop or laptop you already own, pair your phone, explore the network and decide whether OSP is useful to you.</p>
+          <span class="hardware-note">Buy nothing to start</span>
+        </article>
+        <article>
+          <p class="hardware-kicker">EVERYDAY HOME NODE</p>
+          <h3>Small, cheap, always on</h3>
+          <p>An old computer, mini PC or Raspberry Pi-class SBC is the target for an everyday node that keeps your identity, posts and media available.</p>
+          <span class="hardware-note">Low-power target</span>
+        </article>
+        <article>
+          <p class="hardware-kicker">HEAVY USER</p>
+          <h3>More storage, more participation</h3>
+          <p>Follow more people, keep more shared content and contribute more bandwidth by giving the node additional storage and network capacity.</p>
+          <span class="hardware-note">Scale when you need it</span>
+        </article>
+        <article>
+          <p class="hardware-kicker">CREATOR</p>
+          <h3>More power for more media</h3>
+          <p>Creators with larger libraries can benefit from stronger CPU, storage and bandwidth for jobs such as video transcoding. Creator-class hardware is not required to join.</p>
+          <span class="hardware-note">Power follows the workload</span>
+        </article>
+      </div>
+
+      <p class="hardware-line">The point isn't that everyone needs a server. <strong>The point is that the server can belong to you.</strong></p>
     </section>
 
     <section id="universe" class="feature split">
@@ -101,13 +146,13 @@
     <section id="how" class="how">
       <div class="section-heading">
         <p class="eyebrow">HOW OSP WORKS</p>
-        <h2>A familiar app on top of a different architecture.</h2>
+        <h2>A familiar app on top of a network that isn't owned by one platform.</h2>
       </div>
       <div class="steps">
         <article>
           <span>1</span>
-          <h3>Run a home node</h3>
-          <p>Your computer owns the long-lived identity and stores your posts and media.</p>
+          <h3>Run your node</h3>
+          <p>Your computer owns the long-lived identity and stores your posts and media. Start on the machine you already have.</p>
         </article>
         <article>
           <span>2</span>
@@ -117,12 +162,12 @@
         <article>
           <span>3</span>
           <h3>Meet the network</h3>
-          <p>Nodes discover other nodes, exchange signed public information and learn which peers are useful over time.</p>
+          <p>Nodes discover one another, exchange signed public information and build their own local view instead of asking one central service what the network is.</p>
         </article>
         <article>
           <span>4</span>
           <h3>Share the load</h3>
-          <p>Reshared public content can have verified copies served from more than one participating home.</p>
+          <p>Reshared public content can have verified copies served from more than one participating home, spreading storage and bandwidth across the network.</p>
         </article>
       </div>
     </section>
@@ -130,14 +175,14 @@
     <section class="privacy split">
       <div>
         <p class="eyebrow">PRIVACY BY ARCHITECTURE</p>
-        <h2>The map does not get a free pass.</h2>
+        <h2>Home-hosted doesn't mean privacy claims get a free pass.</h2>
       </div>
       <div>
         <p>
           OSP separates people from machines and deliberately limits what the Universe may display. It does not expose IP addresses, relay addresses, private viewing history, hidden peer scores or guessed location.
         </p>
         <p>
-          Public discovery and public media still involve real network tradeoffs. OSP documents those tradeoffs rather than promising impossible anonymity.
+          Public discovery and public media still involve real network tradeoffs. OSP documents those tradeoffs rather than promising impossible anonymity, and it does not depend on a centralized company learning what you watch just to rank a corporate feed.
         </p>
       </div>
     </section>
