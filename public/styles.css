@@ -238,6 +238,77 @@ h3{font-size:20px;letter-spacing:-.015em}
 }
 .principles p,.steps p,.feature p,.privacy p,.status p,.cta p{color:var(--muted)}
 
+
+.hardware{
+  max-width:var(--max);
+  margin:auto;
+  padding:112px 24px;
+  border-top:1px solid var(--line);
+}
+.hardware-intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:74px;
+  align-items:start;
+  margin-bottom:50px;
+}
+.hardware-intro p{color:var(--muted);margin-top:0}
+.hardware-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.hardware-grid article{
+  position:relative;
+  min-height:280px;
+  display:flex;
+  flex-direction:column;
+  padding:27px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:linear-gradient(180deg,rgba(16,28,75,.72),rgba(8,14,39,.84));
+  overflow:hidden;
+}
+.hardware-grid article:before{
+  content:"";
+  position:absolute;
+  top:0;left:12%;right:12%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),var(--pink),transparent);
+  opacity:.55;
+}
+.hardware-kicker{
+  margin:0 0 18px;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.14em;
+  color:var(--cyan)!important;
+}
+.hardware-grid h3{font-size:22px;margin-bottom:12px}
+.hardware-grid p{color:var(--muted);margin-top:0}
+.hardware-note{
+  margin-top:auto;
+  padding-top:20px;
+  color:#dfe7fb;
+  font-size:13px;
+  font-weight:700;
+}
+.hardware-line{
+  max-width:840px;
+  margin:48px auto 0;
+  text-align:center;
+  font-size:clamp(22px,3vw,32px);
+  line-height:1.25;
+  color:#c8d5ec;
+}
+.hardware-line strong{
+  color:transparent;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+
+
 .split,.status{
   max-width:var(--max);
   margin:auto;
@@ -322,6 +393,8 @@ footer p{margin:3px 0 0;font-size:14px}
   .ring-one{width:320px;height:320px}
   .ring-two{width:380px;height:380px}
   .principles,.steps{grid-template-columns:1fr 1fr}
+  .hardware-intro{grid-template-columns:1fr;gap:24px}
+  .hardware-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:580px){
   .site-header{padding:17px 18px}
@@ -334,7 +407,7 @@ footer p{margin:3px 0 0;font-size:14px}
   .ring-one{width:270px;height:270px}
   .ring-two{width:315px;height:315px}
   .hero-badge{right:8px;bottom:18px}
-  .principles,.steps,.split,.status,.cta{padding-left:18px;padding-right:18px}
-  .principles,.steps{grid-template-columns:1fr}
+  .principles,.steps,.split,.status,.cta,.hardware{padding-left:18px;padding-right:18px}
+  .principles,.steps,.hardware-grid{grid-template-columns:1fr}
   footer{flex-direction:column}
 }
