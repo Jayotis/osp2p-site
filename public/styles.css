@@ -229,6 +229,56 @@ h3{font-size:20px;letter-spacing:-.015em}
 .principles p,.steps p,.feature p,.privacy p,.status p,.cta p{color:var(--muted)}
 
 
+
+.alternatives{
+  max-width:var(--max);
+  margin:auto;
+  padding:112px 24px;
+  border-top:1px solid var(--line);
+}
+.alternatives-copy{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:74px;
+  align-items:start;
+}
+.alternatives-copy .eyebrow,
+.alternatives-copy h2{grid-column:1}
+.alternatives-copy > p:not(.eyebrow){grid-column:2;margin-top:0;color:var(--muted)}
+.alternatives-copy strong{color:var(--text)}
+.platform-grid{
+  margin-top:46px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.platform-grid div{
+  padding:23px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(16,28,75,.62),rgba(8,14,39,.78));
+}
+.platform-grid span{
+  display:block;
+  margin-bottom:4px;
+  font-size:19px;
+  font-weight:800;
+  color:#fff;
+}
+.platform-grid small{
+  color:var(--muted);
+  font-size:13px;
+}
+.free-note{
+  margin:30px 0 0;
+  padding:18px 20px;
+  border-left:2px solid var(--cyan);
+  background:rgba(20,73,128,.12);
+  color:var(--muted);
+}
+.free-note strong{color:var(--cyan)}
+
+
 .hardware{
   max-width:var(--max);
   margin:auto;
@@ -383,6 +433,9 @@ footer p{margin:3px 0 0;font-size:14px}
   .ring-one{width:320px;height:320px}
   .ring-two{width:380px;height:380px}
   .principles,.steps{grid-template-columns:1fr 1fr}
+  .alternatives-copy{grid-template-columns:1fr;gap:16px}
+  .alternatives-copy .eyebrow,.alternatives-copy h2,.alternatives-copy > p:not(.eyebrow){grid-column:1}
+  .platform-grid{grid-template-columns:1fr 1fr}
   .hardware-intro{grid-template-columns:1fr;gap:24px}
   .hardware-grid{grid-template-columns:1fr 1fr}
 }
@@ -397,7 +450,7 @@ footer p{margin:3px 0 0;font-size:14px}
   .ring-one{width:270px;height:270px}
   .ring-two{width:315px;height:315px}
   .hero-badge{right:8px;bottom:18px}
-  .principles,.steps,.split,.status,.cta,.hardware{padding-left:18px;padding-right:18px}
-  .principles,.steps,.hardware-grid{grid-template-columns:1fr}
+  .principles,.steps,.split,.status,.cta,.hardware,.alternatives{padding-left:18px;padding-right:18px}
+  .principles,.steps,.hardware-grid,.platform-grid{grid-template-columns:1fr}
   footer{flex-direction:column}
 }
