@@ -226,16 +226,6 @@ h3{font-size:20px;letter-spacing:-.015em}
 }
 .principles article{transition:transform .2s ease,border-color .2s ease}
 .principles article:hover{transform:translateY(-3px);border-color:rgba(105,157,255,.34)}
-.number{
-  width:max-content;
-  color:transparent;
-  background:var(--gradient);
-  -webkit-background-clip:text;
-  background-clip:text;
-  font-weight:900;
-  font-size:12px;
-  letter-spacing:.14em;
-}
 .principles p,.steps p,.feature p,.privacy p,.status p,.cta p{color:var(--muted)}
 
 
