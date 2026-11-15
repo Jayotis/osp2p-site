@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Social P2P — A social network that runs from your home</title>
+  <meta name="description" content="Open Social P2P is a home-hosted peer-to-peer social network where people own their identity, posts and media, and explore the network through a zoomable Universe.">
+  <meta name="theme-color" content="#07111f">
+  <link rel="canonical" href="https://osp2p.com/">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Open Social P2P">
+  <meta property="og:description" content="A social network that runs from your home computer.">
+  <meta property="og:url" content="https://osp2p.com/">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Open Social P2P home">
+      <span class="brand-mark" aria-hidden="true">OSP</span>
+      <span>Open Social P2P</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#universe">Universe</a>
+      <a href="#how">How it works</a>
+      <a href="#status">Status</a>
+      <a class="nav-github" href="https://github.com/Jayotis/open-social-p2p">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OPEN SOURCE · HOME HOSTED · PEER TO PEER</p>
+        <h1>A social network that runs from <span>your home.</span></h1>
+        <p class="lede">
+          Open Social P2P puts your identity, posts and media on your own node instead of a giant platform.
+          Your phone is the familiar interface. Your home computer does the work.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/Jayotis/open-social-p2p">View the project on GitHub</a>
+          <a class="button secondary" href="#how">See how it works</a>
+        </div>
+        <p class="alpha-note">Product Alpha is under active development. Public testing opens after the current product and privacy gates are complete.</p>
+      </div>
+
+      <div class="universe-card" aria-label="Illustration of the Open Social P2P Universe">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="star star-you"><span>You</span></div>
+        <div class="star star-a"></div>
+        <div class="star star-b"></div>
+        <div class="star star-c"></div>
+        <div class="star star-d"></div>
+        <div class="star star-e"></div>
+        <div class="star star-f"></div>
+        <div class="star star-g"></div>
+        <div class="line line-one"></div>
+        <div class="line line-two"></div>
+        <div class="line line-three"></div>
+        <div class="line line-four"></div>
+        <p class="universe-label">Your Universe</p>
+      </div>
+    </section>
+
+    <section class="principles" aria-label="Core principles">
+      <article>
+        <p class="number">01</p>
+        <h2>Your node</h2>
+        <p>Your home computer keeps your identity and content. The network is built around people owning their own place in it.</p>
+      </article>
+      <article>
+        <p class="number">02</p>
+        <h2>Shared by people</h2>
+        <p>Public media can be carried by other participating nodes, so popular content does not depend on one central server paying every bandwidth bill.</p>
+      </article>
+      <article>
+        <p class="number">03</p>
+        <h2>No hidden feed machine</h2>
+        <p>OSP is being built so discovery comes from the network you can inspect, not from an opaque engagement-ranking system watching what you do.</p>
+      </article>
+    </section>
+
+    <section id="universe" class="feature split">
+      <div>
+        <p class="eyebrow">THE SIGNATURE FEATURE</p>
+        <h2>See the network instead of hiding it.</h2>
+      </div>
+      <div>
+        <p>
+          <strong>Universe</strong> is OSP's zoomable view of the social network. Start at your own star, explore public connections, discover people and content, and zoom from individual relationships out toward larger communities.
+        </p>
+        <p>
+          The map is built from information your own node already legitimately knows. Moving around it does not secretly query other people just to fill the screen.
+        </p>
+        <p class="muted">
+          At large scale, the node summarizes the sky into stable levels of detail instead of asking a phone to render millions of people at once.
+        </p>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <div class="section-heading">
+        <p class="eyebrow">HOW OSP WORKS</p>
+        <h2>A familiar app on top of a different architecture.</h2>
+      </div>
+      <div class="steps">
+        <article>
+          <span>1</span>
+          <h3>Run a home node</h3>
+          <p>Your computer owns the long-lived identity and stores your posts and media.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Pair your phone</h3>
+          <p>The mobile app is the everyday interface for posting, following, replying and exploring.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Meet the network</h3>
+          <p>Nodes discover other nodes, exchange signed public information and learn which peers are useful over time.</p>
+        </article>
+        <article>
+          <span>4</span>
+          <h3>Share the load</h3>
+          <p>Reshared public content can have verified copies served from more than one participating home.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="privacy split">
+      <div>
+        <p class="eyebrow">PRIVACY BY ARCHITECTURE</p>
+        <h2>The map does not get a free pass.</h2>
+      </div>
+      <div>
+        <p>
+          OSP separates people from machines and deliberately limits what the Universe may display. It does not expose IP addresses, relay addresses, private viewing history, hidden peer scores or guessed location.
+        </p>
+        <p>
+          Public discovery and public media still involve real network tradeoffs. OSP documents those tradeoffs rather than promising impossible anonymity.
+        </p>
+      </div>
+    </section>
+
+    <section id="status" class="status">
+      <div>
+        <p class="eyebrow">CURRENT STATUS</p>
+        <h2>Product Alpha is being built in public.</h2>
+        <p>
+          The protocol, home-node model, phone pairing, public posting, media delivery, reshares, replies, discovery and trust mechanisms already exist in working form.
+          The current work is turning those mechanisms into a product people will actually want to use — profiles, Universe, discovery, visible network activity and a polished first-run experience.
+        </p>
+      </div>
+      <div class="status-card">
+        <p class="status-label"><span></span> Development</p>
+        <strong>Product Alpha</strong>
+        <p>Not yet an invitation to install.</p>
+        <a href="https://github.com/Jayotis/open-social-p2p">Follow development on GitHub →</a>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">OPEN SOCIAL P2P</p>
+      <h2>The social network should belong to the people running it.</h2>
+      <p>OSP is AGPL-3.0 open source. Follow the project now; downloads and testing invitations will appear here when Product Alpha is ready.</p>
+      <a class="button primary" href="https://github.com/Jayotis/open-social-p2p">Explore the source</a>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Open Social P2P</strong>
+      <p>Home-hosted social networking, built in the open.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/Jayotis/open-social-p2p">GitHub</a>
+      <a href="https://github.com/Jayotis/open-social-p2p/blob/main/LICENSE">AGPL-3.0</a>
+    </div>
+  </footer>
+</body>
+</html>
