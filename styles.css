@@ -13,6 +13,8 @@ nav{display:flex;gap:22px;align-items:center;color:var(--muted);font-size:14px}
 nav a:hover,.footer-links a:hover{color:var(--text)}
 .nav-github{padding:9px 14px;border:1px solid var(--line);border-radius:999px;color:var(--text)}
 main{overflow:hidden}
+.mobile-section-nav{display:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .hero{max-width:var(--max);margin:0 auto;padding:90px 24px 110px;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
 .eyebrow{font-size:12px;letter-spacing:.17em;font-weight:800;color:var(--accent);margin:0 0 16px}
 h1,h2,h3{line-height:1.08;margin:0}
@@ -62,7 +64,11 @@ footer{max-width:var(--max);margin:auto;padding:34px 24px 50px;border-top:1px so
 footer p{margin:4px 0 0;font-size:14px}
 .footer-links{display:flex;gap:18px}
 @media(max-width:850px){
-  nav a:not(.nav-github){display:none}
+   .site-header nav a:not(.nav-github){display:none}
+  .mobile-section-nav{display:flex;gap:24px;align-items:center;width:100%;padding:10px 24px 14px;overflow-x:auto;overscroll-behavior-x:contain;white-space:nowrap;scrollbar-width:thin;scrollbar-color:var(--line) transparent;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .mobile-section-nav a{flex:0 0 auto;display:inline-block;padding:5px 0;color:var(--muted);font-size:14px;font-weight:600}
+  .mobile-section-nav a:hover,.mobile-section-nav a:focus-visible{color:var(--accent)}
+  .mobile-section-nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
   .hero,.split,.status{grid-template-columns:1fr}
   .hero{padding-top:55px;gap:50px}
   .universe-card{max-width:560px;width:100%;margin:auto}
@@ -70,6 +76,7 @@ footer p{margin:4px 0 0;font-size:14px}
 }
 @media(max-width:580px){
   .site-header{padding:18px}
+  .mobile-section-nav{padding-left:18px;padding-right:18px}
   .brand span:last-child{display:none}
   .hero{padding:48px 18px 80px}
   .principles,.steps,.split,.status,.cta{padding-left:18px;padding-right:18px}
