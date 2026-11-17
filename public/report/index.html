@@ -39,7 +39,7 @@
 
     <div class="content-grid">
       <article class="prose">
-        <form id="report-form" class="report-form">
+        <form id="report-form" class="report-form" novalidate>
           <section class="report-target" aria-labelledby="reported-heading">
             <h2 id="reported-heading">What's reported</h2>
             <p id="target-kind" class="report-target-kind">Tell us what you're reporting.</p>
@@ -54,14 +54,15 @@
           <input type="hidden" id="kind" name="kind" value="manual">
           <input type="hidden" id="target" name="target" value="">
 
-          <fieldset>
+          <fieldset id="rule-fieldset" tabindex="-1" aria-describedby="rule-error">
             <legend>Which rule does it break?</legend>
-            <label class="radio-row"><input type="radio" name="rule" value="Explicit sexual material" required> <span>Explicit sexual material</span></label>
+            <label class="radio-row"><input type="radio" name="rule" value="Explicit sexual material"> <span>Explicit sexual material</span></label>
             <label class="radio-row"><input type="radio" name="rule" value="Prolonged graphic or sadistic realistic violence"> <span>Prolonged graphic or sadistic realistic violence</span></label>
             <label class="radio-row"><input type="radio" name="rule" value="Sexual material involving minors"> <span>Sexual material involving minors</span></label>
             <label class="radio-row"><input type="radio" name="rule" value="Intimate images shared without consent"> <span>Intimate images shared without consent</span></label>
             <label class="radio-row"><input type="radio" name="rule" value="Threats of violence, or material made to incite it"> <span>Threats of violence, or material made to incite it</span></label>
             <label class="radio-row"><input type="radio" name="rule" value="This was hidden and shouldn't be"> <span><strong>Appeal:</strong> This was hidden and shouldn't be</span></label>
+                      <div id="rule-error" class="form-error" role="alert" hidden></div>
           </fieldset>
 
           <div class="field">
@@ -118,6 +119,8 @@
     const kindText = document.getElementById('target-kind');
     const idText = document.getElementById('target-id');
     const error = document.getElementById('form-error');
+    const ruleError = document.getElementById('rule-error');
+    const ruleFieldset = document.getElementById('rule-fieldset');
     const submit = document.getElementById('submit-report');
     const success = document.getElementById('report-success');
 
@@ -171,6 +174,7 @@
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       error.hidden = true;
+      ruleError.hidden = true;
 
       const data = new FormData(form);
       const manual = manualInput.value.trim();
@@ -180,6 +184,21 @@
         error.textContent = 'Paste a post or profile link or ID.';
         error.hidden = false;
         manualInput.focus();
+        return;
+      }
+
+      if (!data.get('rule')) {
+        ruleError.textContent = 'Choose which rule this report is about.';
+        ruleError.hidden = false;
+        ruleFieldset.focus();
+        return;
+      }
+
+      const emailInput = document.getElementById('email');
+      if (emailInput.value && !emailInput.validity.valid) {
+        error.textContent = 'Enter a valid email address, or leave it blank.';
+        error.hidden = false;
+        emailInput.focus();
         return;
       }
 
