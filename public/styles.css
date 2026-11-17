@@ -583,3 +583,12 @@ footer p{margin:3px 0 0;font-size:14px}
   .radio-row{padding:12px}
   .report-success{padding:22px}
 }
+
+.hp-field{
+  position:absolute!important;
+  left:-10000px!important;
+  top:auto!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+}
