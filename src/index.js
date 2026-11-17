@@ -36,11 +36,23 @@ export default {
         return json({error: "This form can only be submitted from osp2p.com."}, 403);
       }
 
+      const rateKey = request.headers.get("CF-Connecting-IP") || "unknown";
+      const { success: withinLimit } = await env.REPORT_RATE_LIMITER.limit({ key: rateKey });
+      if (!withinLimit) {
+        return json({error: "Too many reports were sent from this connection. Try again in about a minute."}, 429);
+      }
+
       let body;
       try {
         body = await request.json();
       } catch (_) {
         return json({error: "Invalid report."}, 400);
+      }
+
+      // Honeypot: real users never see or fill this field. Pretend success so
+      // simple form bots do not learn how to bypass it, but send no email.
+      if (clean(body.website, 200)) {
+        return json({ok: true});
       }
 
       const kind = clean(body.kind, 32) || "manual";
