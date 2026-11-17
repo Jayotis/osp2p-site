@@ -54,6 +54,11 @@
           <input type="hidden" id="kind" name="kind" value="manual">
           <input type="hidden" id="target" name="target" value="">
 
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <fieldset id="rule-fieldset" tabindex="-1" aria-describedby="rule-error">
             <legend>Which rule does it break?</legend>
             <label class="radio-row"><input type="radio" name="rule" value="Explicit sexual material"> <span>Explicit sexual material</span></label>
@@ -214,7 +219,8 @@
             target,
             rule: data.get('rule'),
             note: String(data.get('note') || ''),
-            email: String(data.get('email') || '')
+            email: String(data.get('email') || ''),
+            website: String(data.get('website') || '')
           })
         });
 
