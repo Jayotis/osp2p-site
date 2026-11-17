@@ -491,3 +491,95 @@ footer p{margin:3px 0 0;font-size:14px}
 @media(max-width:580px){
   .testers,.page-main{padding-left:18px;padding-right:18px}
 }
+
+
+/* Report and terms pages */
+.terms-copy > ul{padding-left:1.35rem}
+.terms-copy > ul li{margin:0 0 20px}
+.report-hero{max-width:900px}
+.report-form{max-width:760px}
+.report-form h2{font-size:clamp(27px,3.5vw,40px);margin:0 0 14px}
+.report-target{margin-bottom:38px}
+.report-target-kind{font-size:19px!important;color:var(--text)!important;margin-bottom:8px}
+.report-target-id{
+  display:block;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:rgba(5,9,26,.7);
+  color:#dbe6ff;
+  font-size:13px;
+}
+.report-form fieldset{
+  margin:0 0 36px;
+  padding:0;
+  border:0;
+}
+.report-form legend{
+  margin-bottom:14px;
+  font-size:23px;
+  font-weight:750;
+  line-height:1.2;
+}
+.radio-row{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin:9px 0;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(10,17,47,.55);
+  color:#d8e3f8;
+  cursor:pointer;
+}
+.radio-row:hover{border-color:rgba(92,222,255,.4)}
+.radio-row input{margin-top:5px;accent-color:var(--cyan)}
+.field{margin:0 0 28px}
+.field label{display:block;margin-bottom:8px;font-weight:720}
+.optional,.field-help{color:var(--muted);font-weight:400;font-size:13px}
+.field input,.field textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:13px 14px;
+  background:rgba(6,11,31,.82);
+  color:var(--text);
+  font:inherit;
+}
+.field textarea{resize:vertical;min-height:130px}
+.field input:focus,.field textarea:focus{
+  outline:2px solid rgba(53,230,255,.45);
+  outline-offset:2px;
+  border-color:var(--cyan);
+}
+.report-privacy{
+  margin:8px 0 25px;
+  padding:15px 17px;
+  border-left:2px solid var(--cyan);
+  background:rgba(20,73,128,.12);
+  color:var(--muted);
+  font-size:14px;
+}
+.form-error{
+  margin:0 0 18px;
+  padding:12px 14px;
+  border:1px solid rgba(255,91,130,.4);
+  border-radius:10px;
+  background:rgba(130,20,51,.15);
+  color:#ffd5df;
+}
+.report-form button:disabled{opacity:.65;cursor:wait}
+.report-success{
+  padding:28px;
+  border:1px solid rgba(46,241,198,.28);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(14,65,64,.34),rgba(8,14,39,.84));
+}
+.report-success h2{margin-bottom:12px}
+@media(max-width:580px){
+  .radio-row{padding:12px}
+  .report-success{padding:22px}
+}
