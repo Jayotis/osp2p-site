@@ -9,35 +9,62 @@ function escapeHtml(value) {
 }
 
 function termsInline(value) {
-  // Escape all prose first; the only supported Markdown formatting is a link.
-  return value.replace(/\[([^\]]+)\]\(([^)]+)\)|([^[]+|\[)/g, (part, label, target, plain) => {
-    if (plain !== undefined) return escapeHtml(plain);
-    // Link targets are relative to docs/ in the source repository.
-    const destination = new URL(target, "https://github.com/Jayotis/open-social-p2p/blob/main/docs/");
-    if (destination.origin !== "https://github.com" ||
-        !destination.pathname.startsWith("/Jayotis/open-social-p2p/blob/main/docs/")) {
-      throw new Error("Unexpected terms link");
+  const pieces = value.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g);
+  return pieces.map(part => {
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      const destination = new URL(link[2], "https://github.com/Jayotis/open-social-p2p/blob/main/docs/");
+      if (!["https:", "mailto:"].includes(destination.protocol)) throw new Error("Unsafe terms link");
+      return '<a href="' + escapeHtml(destination.href) + '">' + escapeHtml(link[1]) + '</a>';
     }
-    return '<a href="' + escapeHtml(destination.href) + '">' + escapeHtml(label) + "</a>";
-  });
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return "<strong>" + escapeHtml(part.slice(2, -2)) + "</strong>";
+    }
+    return escapeHtml(part);
+  }).join("");
 }
 
 function renderTerms(markdown) {
   const lines = markdown.replace(/\r\n/g, "\n").trim().split("\n");
-  if (lines[0] !== "# Terms of use" || !/^Version \d+, \d{4}-\d{2}-\d{2}\./.test(lines[2])) {
+  if (lines[0] !== "# Terms of use" || !/^Version \d+/.test(lines[2] || "")) {
     throw new Error("Unexpected canonical terms format");
   }
-  const paragraphs = [];
-  const bullets = [];
-  for (const line of lines.slice(2)) {
-    if (!line.trim()) continue;
-    if (line.startsWith("- ")) bullets.push("<li>" + termsInline(line.slice(2)) + "</li>");
-    else if (!bullets.length) paragraphs.push("<p>" + termsInline(line) + "</p>");
-    else throw new Error("Unexpected terms content");
+  const version = lines[2].match(/^Version (\d+)/)[1];
+  const sections = [];
+  let paragraph = [];
+  let inList = false;
+  function flushParagraph() {
+    if (paragraph.length) sections.push("<p>" + termsInline(paragraph.join(" ")) + "</p>");
+    paragraph = [];
   }
-  if (!paragraphs.length || bullets.length < 1) throw new Error("Incomplete canonical terms");
-  const version = lines[2].match(/^Version (\d+),/)[1];
-  return {intro: paragraphs.join("\n"), list: "<ul>\n" + bullets.join("\n") + "\n</ul>", version};
+  function closeList() {
+    if (inList) sections.push("</ul>");
+    inList = false;
+  }
+  for (const line of lines.slice(3)) {
+    if (!line.trim()) {
+      flushParagraph();
+      closeList();
+    } else if (line.startsWith("## ")) {
+      flushParagraph();
+      closeList();
+      sections.push("<h2>" + escapeHtml(line.slice(3)) + "</h2>");
+    } else if (line.startsWith("- ")) {
+      flushParagraph();
+      if (!inList) sections.push("<ul>");
+      inList = true;
+      sections.push("<li>" + termsInline(line.slice(2)) + "</li>");
+    } else if (line.startsWith("# ") || line.startsWith("<")) {
+      throw new Error("Unexpected terms markup");
+    } else {
+      if (inList) closeList();
+      paragraph.push(line.trim());
+    }
+  }
+  flushParagraph();
+  closeList();
+  if (sections.length < 5) throw new Error("Incomplete canonical terms");
+  return {intro: "<p>" + termsInline(lines[2]) + "</p>", article: sections.join("\n"), version};
 }
 
 async function serveTerms(request, env) {
@@ -52,7 +79,7 @@ async function serveTerms(request, env) {
     if (!source.ok) throw new Error("Canonical terms unavailable");
     const markdown = await source.text();
     if (markdown.length > 30000) throw new Error("Canonical terms too large");
-    const {intro, list, version} = renderTerms(markdown);
+    const {intro, article, version} = renderTerms(markdown);
     const template = await env.ASSETS.fetch(new Request(new URL("/terms/", request.url)));
     if (!template.ok) throw new Error("Terms page template unavailable");
     let html = await template.text();
@@ -60,7 +87,7 @@ async function serveTerms(request, env) {
     const body = /(<article class="prose terms-copy">)[\s\S]*?(<p><a class="button secondary")/;
     if (!hero.test(html) || !body.test(html)) throw new Error("Terms template changed");
     html = html.replace(hero, (_, start, end) => start + "\n      " + intro + "\n    " + end);
-    html = html.replace(body, (_, start, button) => start + "\n        " + list + "\n\n        " + button);
+    html = html.replace(body, (_, start, button) => start + "\n        " + article + "\n\n        " + button);
     html = html.replace(/(<aside class="side-card">\s*<h3>)Version \d+/, "$1Version " + version);
     html = html.replace(/<meta name="description" content="[^"]*">/,
       '<meta name="description" content="Open Social P2P terms of use, sourced from the official project repository.">');
