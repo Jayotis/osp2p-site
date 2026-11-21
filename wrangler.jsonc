@@ -27,5 +27,22 @@
         "period": 60
       }
     }
-  ]
+  ],
+  "previews": {
+    "send_email": [
+      {
+        "name": "EMAIL"
+      }
+    ],
+    "ratelimits": [
+      {
+        "name": "REPORT_RATE_LIMITER",
+        "namespace_id": "4243",
+        "simple": {
+          "limit": 5,
+          "period": 60
+        }
+      }
+    ]
+  }
 }
